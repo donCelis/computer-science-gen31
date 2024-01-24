@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalStorage</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui;
+        background: #333;
+        color: #f5f5f5;
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+    <script type="module" src="./storage.js"></script>
+  </head>
+  <body>
+    <h1>LocalStorage</h1>
+    <!-- create form to save product -->
+    <form id="product-form">
+      <div>
+        <input type="text" name="name" placeholder="Product Name" />
+      </div>
+      <div>
+        <input type="number" name="price" placeholder="Product Price" />
+      </div>
+      <button>Save</button>
+    </form>
+    <div>
+      <button id="item">Delete item</button>
+      <button id="all">Delete all</button>
+    </div>
+  </body>
+</html>
