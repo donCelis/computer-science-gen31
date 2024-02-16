@@ -45,12 +45,12 @@ export const trC = ({ name, age, team, role, photo }) => {
     </td>
     <td class="px-6 py-4">
       <div class="flex justify-end gap-4">
-        <a class="h-8 w-8 px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100" x-data="{ tooltip: 'Edite' }" href="#">
-          <img src="./edit.svg" alt="icon-edit">
-        </a>
-        <a class="h-8 w-8 px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100" x-data="{ tooltip: 'Delete' }" href="#">
-          <img src="./delete.svg" alt="icon-delete">
-        </a>
+        <button class="h-[30px] w-[30px] px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100 border">
+          <img class"h-full w-full" src="./edit.svg" alt="icon-edit">
+        </button>
+        <button class="h-[30px] w-[30px] px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100 border">
+          <img class"h-full w-full" src="./delete.svg" alt="icon-delete">
+        </button>
       </div>
     </td>
   </tr>`;
