@@ -1,21 +1,28 @@
+export const titles = ["Name", "Age", "Role", "Team", ""];
+
 export const jedis = [
   {
     name: "Luke Skywalker",
     age: 30,
     team: "Rebel Alliance",
     role: "Maestro Jedi",
+    photo:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
     name: "Obi-Wan Kenobi",
     age: 60,
     team: "Jedi Order",
     role: "Maestro de la Orden",
+    photo:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
     name: "Yoda",
     age: 900,
     team: "Jedi Order",
     role: "Maestro de la Orden",
+    photo: null,
   },
   {
     name: "Anakin Skywalker",
