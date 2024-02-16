@@ -6,7 +6,7 @@ import "./styles/app.css";
 import { getFormValues } from "./utils/getFormValues";
 
 //TODO: crear la funcionalidad para la modal -> ok
-//TODO: agregar usuarios
+//TODO: agregar usuarios -> ok
 //TODO: editar usuarios
 //TODO: borrar usuarios
 //TODO: buscar usuarios
