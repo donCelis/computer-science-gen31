@@ -12,7 +12,7 @@ export const trC = ({ name, age, team, role, photo }) => {
         ></span>
       </div>
       <div class="text-sm">
-        <div class="font-medium text-gray-700">${name}</div>
+        <div class="capitalize font-medium text-gray-700">${name}</div>
       </div>
     </th>
     <td class="px-6 py-4">
