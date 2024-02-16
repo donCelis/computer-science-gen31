@@ -9,24 +9,29 @@
   </head>
   <body class="bg-slate-700 relative">
     <section class="container mx-auto p-12 relative z-10">
-      <h1 class="text-4xl font-bold text-white text-center">Star Wars</h1>
+      <div class="logo text-center">
+        <div class="inline-flex items-center justify-center gap-4 bg-[#fedd49] p-2 rounded-lg">
+          <img src="./logo.svg" alt="Star Wars">
+          <h1 class="text-4xl font-bold">Star Wars</h1>
+        </div>
+      </div>
       <section class="flex justify-between items-center py-6">
         <button
           id="open-modal"
           role="button"
           aria-label="open modal"
-          class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600"
+          class="flex items-center justify-center w-1/2 px-5 py-2 tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600"
         >
           <img src="./plus.svg" alt="Add user" class="w-5 h-5 invert" />
-          <span>Add user</span>
+          <span>Add jedi</span>
         </button>
-        <form class="relative flex items-center">
+        <form id="search" class="relative flex items-center">
           <span class="absolute">
             <img src="./search.svg" alt="Search" class="w-5 h-5 mx-3" />
           </span>
 
           <input
-            type="text"
+            type="search"
             placeholder="Search"
             class="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           />
@@ -47,12 +52,13 @@
         </table>
       </div>
     </section>
+    <!-- Modal -->
     <section
       id="modal"
       class="hidden fixed z-50 inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
     >
       <div
-        class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white"
+        class="relative top-20 mx-auto p-5 border w-1/2 shadow-lg rounded-lg bg-white"
       >
         <button
           id="close-modal"
@@ -62,15 +68,11 @@
         >
           <img src="./close.svg" alt="Close" class="w-5 h-5" />
         </button>
-        <div class="mt-3 text-center">
-          <h3 class="text-lg leading-6 font-medium text-gray-900">
-            Agregar usuario
+        <div>
+          <h3 class="text-lg text-center leading-6 font-medium text-gray-900">
+            Add Jedi
           </h3>
-          <div class="mt-2 px-7 py-3">
-            <p class="text-sm text-gray-500">
-              Contenido de tu modal. Puedes colocar lo que desees aquí.
-            </p>
-          </div>
+          <div class="px-7 py-5" id="modal-container"></div>
         </div>
       </div>
     </section>
