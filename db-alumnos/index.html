@@ -17,7 +17,7 @@
           <h1 class="text-4xl font-bold">Star Wars</h1>
         </div>
       </div>
-      <section class="flex justify-between items-center py-6">
+      <section class="flex justify-between items-center gap-3 py-6">
         <button
           id="open-modal"
           role="button"
@@ -40,10 +40,12 @@
         </form>
       </section>
       <!-- Table -->
-      <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md">
+      <div
+        class="overflow-y-hidden rounded-lg border border-gray-200 shadow-md"
+      >
         <table
           id="table-container"
-          class="w-full border-collapse bg-white text-left text-sm text-gray-500"
+          class="w-[1024px] lg:w-full border-collapse bg-white text-left text-sm text-gray-500"
         >
           <thead class="bg-gray-50">
             <tr id="tr"></tr>
@@ -60,7 +62,7 @@
       class="hidden fixed z-50 inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
     >
       <div
-        class="relative top-20 mx-auto p-5 border w-1/2 shadow-lg rounded-lg bg-white"
+        class="relative top-20 mx-auto p-5 border w-4/5 md:w-1/2 lg:w-[520px] shadow-lg rounded-lg bg-white"
       >
         <button
           id="close-modal"
