@@ -1,5 +1,19 @@
 export const titles = ["Name", "Age", "Role", "Team", ""];
 
+export const roleOptions = [
+  "Iniciado Jedi",
+  "Padawan",
+  "Caballero Jedi",
+  "Maestro Jedi",
+  "Maestro de la Orden",
+];
+export const teamOptions = [
+  "First Order",
+  "Jedi Order",
+  "Rebel Alliance",
+  "Resistance",
+];
+
 export const jedis = [
   {
     name: "Luke Skywalker",
@@ -36,7 +50,7 @@ export const jedis = [
     team: "Jedi Order",
     role: "Maestro Jedi",
   },
-  {
+  /*  {
     name: "Ahsoka Tano",
     age: 18,
     team: "Jedi Order",
@@ -95,5 +109,5 @@ export const jedis = [
     age: 28,
     team: "Jedi Order",
     role: "Padawan",
-  },
+  }, */
 ];
