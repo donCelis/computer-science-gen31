@@ -1,9 +1,9 @@
 import { formC } from "./components/form";
 import { thC } from "./components/th";
-import { trC } from "./components/tr";
-import { jedis, roleOptions, teamOptions, titles } from "./db";
+import { titles } from "./db";
+import { handleSubmit } from "./scripts/create";
+import { updateList } from "./scripts/read";
 import "./styles/app.css";
-import { getFormValues } from "./utils/getFormValues";
 
 //TODO: crear la funcionalidad para la modal -> ok
 //TODO: agregar usuarios -> ok
@@ -15,25 +15,12 @@ import { getFormValues } from "./utils/getFormValues";
 // DOM
 const $tableContainer = document.querySelector("#table-container");
 const $thMain = $tableContainer.querySelector("#tr");
-const $tbody = $tableContainer.querySelector("tbody");
+export const $tbody = $tableContainer.querySelector("tbody");
 
-const $modal = document.querySelector("#modal");
+export const $modal = document.querySelector("#modal");
 const $modalContainer = $modal.querySelector("#modal-container");
 const $openModal = document.querySelector("#open-modal");
 const $closeModal = document.querySelector("#close-modal");
-
-const updateList = (array = jedis) => {
-  $tbody.innerHTML = "";
-
-  array.forEach((element, index) => {
-    $tbody.innerHTML += trC({ ...element, index });
-  });
-
-  const $deleteButtons = $tbody.querySelectorAll("[data-action='delete']");
-  $deleteButtons.forEach(($button) => {
-    $button.addEventListener("click", () => handleDelete($button));
-  });
-};
 
 window.addEventListener("DOMContentLoaded", (e) => {
   // modal
@@ -53,28 +40,3 @@ window.addEventListener("DOMContentLoaded", (e) => {
   const $form = document.querySelector("#create-user");
   $form.addEventListener("submit", handleSubmit);
 });
-
-// create user
-const handleSubmit = (e) => {
-  e.preventDefault();
-
-  const tmpUser = getFormValues(e.target);
-  const newUser = {
-    ...tmpUser,
-    role: roleOptions[tmpUser.role],
-    team: teamOptions[tmpUser.team],
-  };
-
-  jedis.push(newUser);
-  updateList();
-
-  e.target.reset();
-  $modal.classList.add("hidden");
-};
-
-// delete user
-export const handleDelete = (event) => {
-  const index = event.dataset.index;
-  jedis.splice(index, 1);
-  updateList();
-};
