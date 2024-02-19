@@ -25,8 +25,13 @@ const $closeModal = document.querySelector("#close-modal");
 const updateList = (array = jedis) => {
   $tbody.innerHTML = "";
 
-  array.forEach((element) => {
-    $tbody.innerHTML += trC({ ...element });
+  array.forEach((element, index) => {
+    $tbody.innerHTML += trC({ ...element, index });
+  });
+
+  const $deleteButtons = $tbody.querySelectorAll("[data-action='delete']");
+  $deleteButtons.forEach(($button) => {
+    $button.addEventListener("click", () => handleDelete($button));
   });
 };
 
@@ -62,7 +67,14 @@ const handleSubmit = (e) => {
 
   jedis.push(newUser);
   updateList();
-  
+
   e.target.reset();
   $modal.classList.add("hidden");
+};
+
+// delete user
+export const handleDelete = (event) => {
+  const index = event.dataset.index;
+  jedis.splice(index, 1);
+  updateList();
 };

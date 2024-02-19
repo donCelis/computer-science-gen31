@@ -1,7 +1,7 @@
 import { avatarC } from "./avatar";
 import { photoC } from "./photo";
 
-export const trC = ({ name, age, team, role, photo }) => {
+export const trC = ({ name, age, team, role, photo, index }) => {
   return `
   <tr>
     <th class="flex items-center gap-3 px-6 py-4 font-normal text-gray-900">
@@ -45,10 +45,10 @@ export const trC = ({ name, age, team, role, photo }) => {
     </td>
     <td class="px-6 py-4">
       <div class="flex justify-end gap-4">
-        <button class="h-[30px] w-[30px] px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100 border">
+        <button data-index="${index}" data-action="edit" class="h-[30px] w-[30px] px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100 border">
           <img class"h-full w-full" src="./edit.svg" alt="icon-edit">
         </button>
-        <button class="h-[30px] w-[30px] px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100 border">
+        <button data-index="${index}" data-action="delete" class="h-[30px] w-[30px] px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100 border">
           <img class"h-full w-full" src="./delete.svg" alt="icon-delete">
         </button>
       </div>
