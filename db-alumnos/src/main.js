@@ -8,7 +8,7 @@ import { debounceHandleSearch } from "./scripts/search";
 
 //TODO: crear la funcionalidad para la modal -> ok
 //TODO: agregar usuarios -> ok
-//TODO: editar usuarios
+//TODO: editar usuarios -> ok
 //TODO: borrar usuarios -> ok
 //TODO: buscar usuarios -> ok (agregar un debounce)
 //TODO: ordenar usuarios
