@@ -14,9 +14,8 @@ export const handleSubmit = (e) => {
     team: teamOptions[tmpUser.team],
   };
 
-  const tempJejis = [...jedis, newUser];
-
-  updateList(tempJejis);
+  jedis.push(newUser);
+  updateList();
 
   e.target.reset();
   $modal.classList.add("hidden");
