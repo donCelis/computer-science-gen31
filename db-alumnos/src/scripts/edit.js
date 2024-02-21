@@ -11,6 +11,7 @@ const handleSubmitEdit = (e, index) => {
   const data = getFormValues(e.target);
 
   jedis[index] = {
+    ...dedis[index],
     name: data.name,
     age: data.age,
     role: roleOptions[data.role],
