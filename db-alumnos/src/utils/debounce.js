@@ -4,8 +4,6 @@ export const debounce = (func, wait) => {
   return (...args) => {
     clearTimeout(timeout);
 
-    timeout = setTimeout(() => {
-      func(...args);
-    }, wait);
+    timeout = setTimeout(() => func(...args), wait);
   };
 };
