@@ -3,8 +3,8 @@ export const inputC = ({ type, name, placeholder, required = false }) => {
     <div>
       <label
         for="${name}"
-        class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-        >Name</label
+        class="text-gray-800 text-sm font-bold leading-tight tracking-normal capitalize"
+        >${name}</label
       >
       <input
         id="${name}"
