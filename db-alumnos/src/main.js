@@ -1,10 +1,10 @@
+import "./styles/app.css";
 import { formC } from "./components/form";
 import { thC } from "./components/th";
 import { titles } from "./db";
 import { handleSubmit } from "./scripts/create";
 import { updateList } from "./scripts/read";
-import { handleSearch } from "./scripts/search";
-import "./styles/app.css";
+import { debounceHandleSearch } from "./scripts/search";
 
 //TODO: crear la funcionalidad para la modal -> ok
 //TODO: agregar usuarios -> ok
@@ -14,8 +14,6 @@ import "./styles/app.css";
 //TODO: ordenar usuarios
 
 // DOM
-const $search = document.querySelector("#search");
-
 const $tableContainer = document.querySelector("#table-container");
 const $thMain = $tableContainer.querySelector("#tr");
 export const $tbody = $tableContainer.querySelector("tbody");
@@ -44,5 +42,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
   $form.addEventListener("submit", handleSubmit);
 
   // search user
-  $search.addEventListener("input", handleSearch);
+  const $search = document.querySelector("#search");
+  $search.addEventListener("input", debounceHandleSearch);
 });
