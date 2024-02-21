@@ -1,5 +1,6 @@
 import { jedis } from "../db";
 import { updateList } from "./read";
+import { debounce } from "../utils/debounce";
 
 export const handleSearch = (event) => {
   event.preventDefault();
@@ -11,3 +12,5 @@ export const handleSearch = (event) => {
 
   updateList(filterJedis);
 };
+
+export const debounceHandleSearch = debounce(handleSearch, 500);
