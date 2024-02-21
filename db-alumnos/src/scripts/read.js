@@ -1,12 +1,10 @@
 import { trC } from "../components/tr";
-import { titles } from "../db";
+import { jedis, titles } from "../db";
 import { $tbody } from "../main";
-import { readUsers } from "../store";
 import { handleDelete } from "./delete";
 import { handleEdit } from "./edit";
 
-export const updateList = (filteredUsers) => {
-  const users = filteredUsers || readUsers();
+export const updateList = (users = jedis) => {
   $tbody.innerHTML = "";
 
   if (!users.length) {
