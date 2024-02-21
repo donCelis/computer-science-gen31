@@ -48,6 +48,9 @@ window.addEventListener("DOMContentLoaded", (e) => {
   $form.addEventListener("submit", handleSubmit);
 
   // search user
-  const $search = document.querySelector("#search");
-  $search.addEventListener("input", debounceHandleSearch);
+  const $searchForm = document.querySelector("#search");
+  const $searchInput = $searchForm.querySelector("input");
+
+  $searchForm.addEventListener("submit", (e) => e.preventDefault());
+  $searchInput.addEventListener("input", debounceHandleSearch);
 });
