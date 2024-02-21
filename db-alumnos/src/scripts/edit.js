@@ -4,13 +4,12 @@ import { $modal, $modalContainer } from "../main";
 import { formC } from "../components/form";
 import { getFormValues } from "../utils/getFormValues";
 
-const handleSubmitEdit = (e, index, tempUser) => {
+const handleSubmitEdit = (e, index) => {
   e.preventDefault();
 
   const data = getFormValues(e.target);
 
   jedis[index] = {
-    ...tempUser,
     name: data.name,
     age: data.age,
     role: roleOptions[data.role],
@@ -34,5 +33,5 @@ export const handleEdit = (event) => {
   $form.name.value = tempUser.name;
   $form.age.value = tempUser.age;
 
-  $form.addEventListener("submit", (e) => handleSubmitEdit(e, index, tempUser));
+  $form.addEventListener("submit", (e) => handleSubmitEdit(e, index));
 };
