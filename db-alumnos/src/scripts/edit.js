@@ -18,8 +18,8 @@ const handleSubmitEdit = (e, index, tempUser) => {
   };
 
   updateList();
-  $modal.classList.add("hidden");
   e.target.reset();
+  $modal.classList.add("hidden");
 };
 
 export const handleEdit = (event) => {
