@@ -3,7 +3,6 @@ import { photoC } from "./photo";
 
 export const trC = ({ name, age, team, role, photo, index }) => {
   return `
-  <tr>
     <th class="flex items-center gap-3 px-6 py-4 font-normal text-gray-900">
       <div class="relative h-10 w-10">
         ${photo ? photoC({ name, photo }) : avatarC({ name })}
@@ -53,5 +52,5 @@ export const trC = ({ name, age, team, role, photo, index }) => {
         </button>
       </div>
     </td>
-  </tr>`;
+  `;
 };
