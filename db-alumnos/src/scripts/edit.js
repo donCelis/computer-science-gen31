@@ -2,18 +2,19 @@ import { jedis, roleOptions, teamOptions } from "../db";
 import { updateList } from "./read";
 import { $modal, $modalContainer } from "../main";
 import { formC } from "../components/form";
+import { getFormValues } from "../utils/getFormValues";
 
 const handleSubmitEdit = (e, index, tempUser) => {
   e.preventDefault();
 
-  const $form = e.target;
+  const data = getFormValues(e.target);
 
   jedis[index] = {
     ...tempUser,
-    name: $form.name.value,
-    age: $form.age.value,
-    role: roleOptions[$form.role.value],
-    team: teamOptions[$form.team.value],
+    name: data.name,
+    age: data.age,
+    role: roleOptions[data.role],
+    team: teamOptions[data.team],
   };
 
   updateList();
