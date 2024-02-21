@@ -23,6 +23,11 @@ export const $modalContainer = $modal.querySelector("#modal-container");
 const $openModal = document.querySelector("#open-modal");
 const $closeModal = document.querySelector("#close-modal");
 
+function renderTableTitles() {
+  const titlesHTML = titles.map((title) => thC({ title })).join("");
+  $thMain.innerHTML = titlesHTML;
+}
+
 window.addEventListener("DOMContentLoaded", (e) => {
   // modal
   $openModal.addEventListener("click", () => $modal.classList.remove("hidden"));
@@ -30,9 +35,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   $modalContainer.innerHTML = formC({ id: "create-user" });
 
   // titles table
-  titles.forEach((title) => {
-    $thMain.innerHTML += thC({ title });
-  });
+  renderTableTitles();
 
   // render list users
   updateList();
