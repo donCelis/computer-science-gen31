@@ -3,16 +3,19 @@ import { thC } from "./components/th";
 import { titles } from "./db";
 import { handleSubmit } from "./scripts/create";
 import { updateList } from "./scripts/read";
+import { handleSearch } from "./scripts/search";
 import "./styles/app.css";
 
 //TODO: crear la funcionalidad para la modal -> ok
 //TODO: agregar usuarios -> ok
 //TODO: editar usuarios
 //TODO: borrar usuarios -> ok
-//TODO: buscar usuarios
+//TODO: buscar usuarios -> ok (agregar un debounce)
 //TODO: ordenar usuarios
 
 // DOM
+const $search = document.querySelector("#search");
+
 const $tableContainer = document.querySelector("#table-container");
 const $thMain = $tableContainer.querySelector("#tr");
 export const $tbody = $tableContainer.querySelector("tbody");
@@ -39,4 +42,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   // create user
   const $form = document.querySelector("#create-user");
   $form.addEventListener("submit", handleSubmit);
+
+  // search user
+  $search.addEventListener("input", handleSearch);
 });
