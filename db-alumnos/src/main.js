@@ -31,7 +31,10 @@ function renderTableTitles() {
 window.addEventListener("DOMContentLoaded", (e) => {
   // modal
   $openModal.addEventListener("click", () => $modal.classList.remove("hidden"));
-  $closeModal.addEventListener("click", () => $modal.classList.add("hidden"));
+  $closeModal.addEventListener("click", () => {
+    $modalContainer.querySelector("form").reset();
+    $modal.classList.add("hidden");
+  });
   $modalContainer.innerHTML = formC({ id: "create-user" });
 
   // titles table
