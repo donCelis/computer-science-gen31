@@ -18,6 +18,8 @@ const handleSubmitEdit = (e, index, tempUser) => {
     team: teamOptions[data.team],
   };
 
+  jedis[index] = tempUser;
+
   updateList();
   e.target.reset();
   $modal.classList.add("hidden");
