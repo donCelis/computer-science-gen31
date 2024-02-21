@@ -19,7 +19,7 @@ const $thMain = $tableContainer.querySelector("#tr");
 export const $tbody = $tableContainer.querySelector("tbody");
 
 export const $modal = document.querySelector("#modal");
-const $modalContainer = $modal.querySelector("#modal-container");
+export const $modalContainer = $modal.querySelector("#modal-container");
 const $openModal = document.querySelector("#open-modal");
 const $closeModal = document.querySelector("#close-modal");
 
@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   // modal
   $openModal.addEventListener("click", () => $modal.classList.remove("hidden"));
   $closeModal.addEventListener("click", () => $modal.classList.add("hidden"));
-  $modalContainer.innerHTML += formC({ id: "create-user" });
+  $modalContainer.innerHTML = formC({ id: "create-user" });
 
   // titles table
   titles.forEach((title) => {
