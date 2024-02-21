@@ -3,6 +3,7 @@ import { updateList } from "./read";
 import { $modal, $modalContainer } from "../main";
 import { formC } from "../components/form";
 import { getFormValues } from "../utils/getFormValues";
+import { findIndex } from "../utils/findIndex";
 
 const handleSubmitEdit = (e, index) => {
   e.preventDefault();
@@ -32,6 +33,15 @@ export const handleEdit = (event) => {
 
   $form.name.value = tempUser.name;
   $form.age.value = tempUser.age;
+
+  $form.role.value = findIndex({
+    array: roleOptions,
+    searchString: tempUser.role,
+  });
+  $form.team.value = findIndex({
+    array: teamOptions,
+    searchString: tempUser.team,
+  });
 
   $form.addEventListener("submit", (e) => handleSubmitEdit(e, index));
 };
