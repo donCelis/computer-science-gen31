@@ -5,13 +5,13 @@ import { formC } from "../components/form";
 import { getFormValues } from "../utils/getFormValues";
 import { findIndex } from "../utils/findIndex";
 
-const handleSubmitEdit = (e, index) => {
+const handleSubmitEdit = (e, index, tempUser) => {
   e.preventDefault();
 
   const data = getFormValues(e.target);
 
-  jedis[index] = {
-    ...dedis[index],
+  tempUser = {
+    ...tempUser,
     name: data.name,
     age: data.age,
     role: roleOptions[data.role],
@@ -44,5 +44,5 @@ export const handleEdit = (event) => {
     searchString: tempUser.team,
   });
 
-  $form.addEventListener("submit", (e) => handleSubmitEdit(e, index));
+  $form.addEventListener("submit", (e) => handleSubmitEdit(e, index, tempUser));
 };
