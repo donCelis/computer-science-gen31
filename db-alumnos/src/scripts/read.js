@@ -1,13 +1,15 @@
 import { trC } from "../components/tr";
-import { jedis, titles } from "../db";
+import { titles } from "../db";
 import { $tbody } from "../main";
+import { readUsers } from "../store";
 import { handleDelete } from "./delete";
 import { handleEdit } from "./edit";
 
-export const updateList = (array = jedis) => {
+export const updateList = (filteredUsers) => {
+  const users = filteredUsers || readUsers();
   $tbody.innerHTML = "";
 
-  if (!array.length) {
+  if (!users.length) {
     $tbody.innerHTML = `
       <tr>
         <td colspan="${titles.length}"><p class="text-center py-2">No hay usuarios <p/></td>
@@ -16,17 +18,24 @@ export const updateList = (array = jedis) => {
     return;
   }
 
-  array.forEach((element, index) => {
-    $tbody.innerHTML += trC({ ...element, index });
+  const fragment = document.createDocumentFragment();
+
+  users.forEach((element, index) => {
+    const tempTr = document.createElement("tr");
+    tempTr.innerHTML = trC({ ...element, index }).trim();
+
+    const editButton = tempTr.querySelector("[data-action='edit']");
+    if (editButton) {
+      editButton.addEventListener("click", () => handleEdit(editButton));
+    }
+
+    const deleteButton = tempTr.querySelector("[data-action='delete']");
+    if (deleteButton) {
+      deleteButton.addEventListener("click", () => handleDelete(deleteButton));
+    }
+
+    fragment.appendChild(tempTr);
   });
 
-  const $editButtons = $tbody.querySelectorAll("[data-action='edit']");
-  $editButtons.forEach(($button) => {
-    $button.addEventListener("click", () => handleEdit($button));
-  });
-
-  const $deleteButtons = $tbody.querySelectorAll("[data-action='delete']");
-  $deleteButtons.forEach(($button) => {
-    $button.addEventListener("click", () => handleDelete($button));
-  });
+  $tbody.appendChild(fragment);
 };
